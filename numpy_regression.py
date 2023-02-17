@@ -5,9 +5,8 @@ import sys
 def regression():
     cur_dir = sys.argv[1] if len(sys.argv) > 1 else 'dataset3.txt'
     n = sys.argv[2] if len(sys.argv) > 2 else 4
-    n=int(n) #Löste kanske error jag fick från python terminal?
-    # får inte error längre i alla fall
-    #print(n)
+    n=int(n)
+
     loaded=loadtxt(cur_dir)
     loadedTransposed=transpose(loaded)
     X=loadedTransposed[0]
