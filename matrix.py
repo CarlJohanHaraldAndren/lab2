@@ -28,13 +28,15 @@ def matmul(A,B):
                 matris[i][j] += A[i][k] * B[k][j]
     return matris
 
-def invert(M): # Städa upp koden här?
-    invertedMatrix = [[0 for i in range(len(M))] for j in range(len(M[0]))]
-    invertedMatrix[0][0] = (M[1][1])/(M[0][0]*M[1][1]-M[0][1]*M[1][0])
-    invertedMatrix[0][1] = (-M[0][1]) / (M[0][0] * M[1][1] - M[0][1] * M[1][0])
-    invertedMatrix[1][0] = (-M[1][0]) / (M[0][0] * M[1][1] - M[0][1] * M[1][0])
-    invertedMatrix[1][1] = (M[0][0]) / (M[0][0] * M[1][1] - M[0][1] * M[1][0])
-    return invertedMatrix
+def invert(mat): # Städa upp koden här?
+    a = mat[0][0]
+    b = mat[0][1]
+    c = mat[1][0]
+    d = mat[1][1]
+
+    det = a * d - b * c
+
+    return [[d / det, -b / det], [-c / det, a / det]]
 
 def loadtxt(file):
     with open(file) as texten: # Öppna filen
@@ -45,4 +47,5 @@ def loadtxt(file):
                 line = [float(i) for i in line]
                 listan.append(line)
     return listan
+
 
